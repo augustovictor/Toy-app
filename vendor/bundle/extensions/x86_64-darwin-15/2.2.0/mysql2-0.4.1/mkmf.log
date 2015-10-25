@@ -1,0 +1,394 @@
+have_header: checking for ruby/thread.h... -------------------- yes
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -E -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/thread.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_call_without_gvl() in ruby/thread.h... -------------------- yes
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby/thread.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_call_without_gvl; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_blocking_region()... -------------------- no
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'rb_thread_blocking_region'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'rb_thread_blocking_region' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { rb_thread_blocking_region(); return 0; }
+              ^
+1 warning generated.
+Undefined symbols for architecture x86_64:
+  "_rb_thread_blocking_region", referenced from:
+      _t in conftest-333611.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { rb_thread_blocking_region(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_wait_for_single_fd()... -------------------- yes
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'rb_wait_for_single_fd'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'rb_wait_for_single_fd' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { rb_wait_for_single_fd(); return 0; }
+              ^
+1 warning generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { rb_wait_for_single_fd(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_dup()... -------------------- yes
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_dup; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_intern3()... -------------------- yes
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'rb_intern3'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_intern3; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_intern3; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I.  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib      -lruby.2.2.0  -lpthread -ldl -lobjc "
+conftest.c:13:15: warning: implicit declaration of function 'rb_intern3' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { rb_intern3(); return 0; }
+              ^
+1 warning generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { rb_intern3(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for mysql.h... -------------------- yes
+
+"gcc -E -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysql.h>
+/* end */
+
+--------------------
+
+have_header: checking for errmsg.h... -------------------- yes
+
+"gcc -E -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <errmsg.h>
+/* end */
+
+--------------------
+
+have_header: checking for mysqld_error.h... -------------------- yes
+
+"gcc -E -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <mysqld_error.h>
+/* end */
+
+--------------------
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Weverything -lpthread -ldl -lobjc "
+In file included from conftest.c:1:
+In file included from /Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby.h:33:
+/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/ruby.h:812:5: warning: unknown command tag name [-Wdocumentation-unknown-command]
+/** @internal */
+    ^
+/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/ruby.h:1291:58: warning: 'filename' was marked unused but was used [-Wused-but-marked-unused]
+    rb_obj_written(a, Qundef /* ignore `oldv' now */, b, filename, line);
+                                                         ^
+/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/ruby.h:1291:68: warning: 'line' was marked unused but was used [-Wused-but-marked-unused]
+    rb_obj_written(a, Qundef /* ignore `oldv' now */, b, filename, line);
+                                                                   ^
+3 warnings generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-bad-function-cast -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-conditional-uninitialized -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-covered-switch-default -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-declaration-after-statement -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-disabled-macro-expansion -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-documentation-unknown-command -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-missing-field-initializers -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-missing-variable-declarations -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-padded -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-sign-conversion -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-static-in-inline -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-switch-enum -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-undef -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0 -Wno-used-but-marked-unused -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/x86_64-darwin15 -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0/ruby/backward -I/Users/victoraweb/.rvm/rubies/ruby-2.2.3/include/ruby-2.2.0 -I. -I/usr/local/Cellar/mysql/5.6.27/include/mysql  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/Cellar/libksba/1.3.3/include -I/usr/local/opt/openssl/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -Weverything -Wno-bad-function-cast -Wno-conditional-uninitialized -Wno-covered-switch-default -Wno-declaration-after-statement -Wno-disabled-macro-expansion -Wno-documentation-unknown-command -Wno-missing-field-initializers -Wno-missing-variable-declarations -Wno-padded -Wno-sign-conversion -Wno-static-in-inline -Wno-switch-enum -Wno-undef -Wno-used-but-marked-unused conftest.c  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib -L. -L/Users/victoraweb/.rvm/rubies/ruby-2.2.3/lib -L. -fstack-protector -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/Cellar/libksba/1.3.3/lib -L/usr/local/opt/openssl/lib     -L/usr/local/Cellar/mysql/5.6.27/lib  -lmysqlclient  -lssl -lcrypto  -lruby.2.2.0  -Wl,-rpath,/usr/local/Cellar/mysql/5.6.27/lib -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
